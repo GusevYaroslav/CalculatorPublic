@@ -61,6 +61,9 @@ def compute_postfix(expression: List[Union[int, str]]) -> int: # List = [1, 2, '
         elif elem == '^':
           res = first ** second
 
+        elif elem == '%':
+          res = first % second
+
         else: # Значит такой операции нет
           print('There is no such operation')
           return None
@@ -111,6 +114,7 @@ def infix_to_postfix(expression): # Тот самый перевод из инф
       '*': 2,
       '/': 2,
       '//': 2,
+      '%': 2,
       '^': 3,
   } # Задаем приоритет операций
 
@@ -162,4 +166,4 @@ def ret_val (data):
     postfix = infix_to_postfix(infix)  # Перевод из инфиксной записи в ОПН (постфиксная запись)
     val = compute_postfix(postfix)  # Подсчет ОПН (постфиксной записи)
 
-    return val
+    return str(val)
